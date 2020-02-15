@@ -1,3 +1,5 @@
 from django.contrib import admin
+from Accounting.models import recording
 
-# Register your models here.
+admin.site.register(recording)
+
