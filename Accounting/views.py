@@ -1,7 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-# Create your views here.
+from Accounting.models import recording
 
 def record_list(request):
-    return render(request,'html/index.html')
+
+    records=recording.objects.all()
+
+    context={
+        'records':records
+    }
+    return render(request,'html/record_list.html',context)
 

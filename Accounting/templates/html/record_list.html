@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa_IR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" type="text/css" href="{% static "/accounting/css/bootstrap.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "/accounting/css/font-awesome.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "/accounting/css/main.css" %}">
+
+</head>
+<body dir="rtl">
+
+<div class="container" id="container">
+
+  <div class="row align-items-center" id="header">
+    <div class="col text-center">
+        <h2>
+            داشبورد پیمانکاران
+        </h2>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col py-3">
+        {% if records %}
+            <ul class="item-list">
+                {% for record in records %}
+                    <li>
+                        
+                            <i class="fas fa-film"></i>
+                            {{ record.title }}
+                            <small class="text-muted">
+                                
+                            </small>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <div class="alert alert-danger">
+                در حال حاضر هیچ رکوردی برای نمایش وجود ندارد.
+            </div>
+        {% endif %}
+    </div>
+  </div>  
+
+
+
+  
+</div>
+
+  
+  <script src="{% static "/accounting/js/jquery-3.4.0.min.js" %}"></script>
+  <script src="{% static "/accounting/js/bootstrap.bundle.js" %}"></script>
+  <script src="{% static "/accounting/js/font-awesome.js" %}"></script>
+  <script src="{% static "/accounting/js/main.js" %}"></script>
+</body>
+</html>
