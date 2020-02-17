@@ -18,4 +18,4 @@ def record_details(request,record_id):
         'record':record
 
     }
-    return render(request,'html/index.html',context)
+    return render(request,'html/record_details.html',context)

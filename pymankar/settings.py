@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Accounting.apps.AccountingConfig',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [

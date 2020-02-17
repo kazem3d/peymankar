@@ -17,8 +17,8 @@ class recording(models.Model):
     project=models.ForeignKey('Project',on_delete=models.PROTECT,verbose_name='نام پروژه',null=True)
     title=models.CharField('عنوان',max_length=100)
     amount=models.IntegerField('تعداد')
-    unit_price=models.IntegerField('مبلغ واحد')
-    total_price=models.IntegerField('مبلغ کل')
+    unit_price=models.BigIntegerField('مبلغ واحد')
+    total_price=models.BigIntegerField('مبلغ کل')
     date=models.DateField('تاریخ')
     description=models.TextField('توضیحات')
 

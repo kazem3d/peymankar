@@ -1,0 +1,84 @@
+{% load static %}
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="fa_IR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{record.title}}</title>
+
+  <link rel="stylesheet" type="text/css" href="{% static "/accounting/css/bootstrap.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "/accounting/css/font-awesome.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "/accounting/css/main.css" %}">
+
+</head>
+<body dir="rtl">
+
+<div class="container" id="container">
+
+  <div class="row align-items-center" id="header">
+    <div class="col text-center">
+        <h2>
+            داشبورد پیمانکاران
+        </h2>
+    </div>
+  </div>
+  
+
+  <div class="row py-3">
+    <div class="col-8 item-details">
+        <div class="row px-3">
+            <div class="col-3">
+                <small class="text-muted">
+                    عنوان:
+                </small>
+            </div>
+            <div class="col-9">
+                {{ record.title }}
+            </div>
+            <div class="w-100 my-1"></div>
+            <div class="col-3">
+                <small class="text-muted">
+                    تاریخ:
+                </small>
+            </div>
+            <div class="col-9">
+                {{ record.date }}
+            </div>
+            <div class="w-100 my-1"></div>
+            <div class="col-3">
+                <small class="text-muted">
+                    قیمت کل
+                </small>
+            </div>
+            <div class="col-9">
+                {{ record.total_price | intcomma:False  }}
+                ریال
+            </div>
+            <div class="w-100 my-1"></div>
+            <div class="col-3">
+                <small class="text-muted">
+                    نام پروژه
+                </small>
+            </div>
+            <div class="col-9 item-text-box">
+                {{ record.project }}
+            </div>
+        </div>
+    </div>
+  
+</div>
+
+
+
+
+  
+</div>
+
+  
+  <script src="{% static "/accounting/js/jquery-3.4.0.min.js" %}"></script>
+  <script src="{% static "/accounting/js/bootstrap.bundle.js" %}"></script>
+  <script src="{% static "/accounting/js/font-awesome.js" %}"></script>
+  <script src="{% static "/accounting/js/main.js" %}"></script>
+</body>
+</html>

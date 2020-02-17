@@ -29,13 +29,14 @@
             <ul class="item-list">
                 {% for record in records %}
                     <li>
-                        
+                            
                             <i class="fas fa-film"></i>
-                            {{ record }}
+                            <a href={%url "accounting:record_list" record_id=record.id  %}>{{ record }}
                             <small class="text-muted">
-                                
+                             {{record.description}}   
                             </small>
-                        </a>
+                           </a>
+                        
                     </li>
                 {% endfor %}
             </ul>
