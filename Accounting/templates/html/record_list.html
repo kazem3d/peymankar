@@ -1,28 +1,27 @@
+{% extends  "html/base.html" %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="fa_IR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+{% load humanize %}
 
-  <link rel="stylesheet" type="text/css" href="{% static "/accounting/css/bootstrap.css" %}">
-  <link rel="stylesheet" type="text/css" href="{% static "/accounting/css/font-awesome.css" %}">
-  <link rel="stylesheet" type="text/css" href="{% static "/accounting/css/main.css" %}">
 
-</head>
-<body dir="rtl">
+{% block title %}سامانه جامع پیمانکاران{% endblock %}
 
-<div class="container" id="container">
+{% block toolbar_title %}لیست رکوردها{% endblock %}
 
-  <div class="row align-items-center" id="header">
-    <div class="col text-center">
-        <h2>
-            داشبورد پیمانکاران
-        </h2>
-    </div>
-  </div>
-  
+{% block toolbar_buttons %}
+                <a class="btn btn-light py-1 px-2" href="#" >
+                    <i class="fas fa-film"></i>
+                    خانه
+                </a>
+
+                <a class="btn btn-success py-1 px-2" href="#">
+                    <i class="fas fa-ticket-alt"></i>
+                        درباره ما
+                </a>
+        </div>
+{%endblock%}
+ 
+{% block main_content %}
   <div class="row">
     <div class="col py-3">
         {% if records %}
@@ -31,9 +30,13 @@
                     <li>
                             
                             <i class="fas fa-film"></i>
-                            <a href={%url "accounting:record_list" record_id=record.id  %}>{{ record }}
+                            <a href={%url "accounting:record_details" record_id=record.id  %}>
+                              {{ record.title}}
+                              :
+                              {{record.total_price | intcomma:False}}
+                              ریال
                             <small class="text-muted">
-                             {{record.description}}   
+                             {{record.date|date:"SHORT_DATE_FORMAT"}}   
                             </small>
                            </a>
                         
@@ -48,15 +51,6 @@
     </div>
   </div>  
 
-
-
-  
-</div>
+  {% endblock %}
 
   
-  <script src="{% static "/accounting/js/jquery-3.4.0.min.js" %}"></script>
-  <script src="{% static "/accounting/js/bootstrap.bundle.js" %}"></script>
-  <script src="{% static "/accounting/js/font-awesome.js" %}"></script>
-  <script src="{% static "/accounting/js/main.js" %}"></script>
-</body>
-</html>
