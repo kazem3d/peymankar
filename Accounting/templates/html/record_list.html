@@ -20,11 +20,23 @@
                 </a>
         </div>
 {%endblock%}
- 
+
+
+
 {% block main_content %}
   <div class="row">
     <div class="col py-3">
         {% if records %}
+
+        <div class="row px-5">
+            <form action="" method="GET">
+            {{search_form.as_ul}}
+             <button type="submit">جستجو</button>   
+            </form>
+    
+        </div>
+
+
             <ul class="item-list">
                 {% for record in records %}
                     <li>
