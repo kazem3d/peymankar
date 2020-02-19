@@ -6,13 +6,17 @@ from Accounting.forms import SearchForm
 
 def record_list(request):
     search_form=SearchForm(request.GET)
+    records=recording.objects.all()
     if search_form.is_valid():
-        record_name=search_form.cleaned_data['record_name']
-        records=recording.objects.filter(title__contains=record_name)
-    else:
+       
+        records=records.filter(title__contains=search_form.cleaned_data['record_name'])
+        if search_form.cleaned_data['project_name'] is not None:
+            records=records.filter(project=search_form.cleaned_data['project_name'])
+        if search_form.cleaned_data['max_price'] is not None:
+            records=records.filter(total_price__lte =search_form.cleaned_data['max_price'])
+        if search_form.cleaned_data['min_price'] is not None:
+            records=records.filter(total_price__gte =search_form.cleaned_data['min_price'])
 
-
-        records=recording.objects.all()
 
     context={
         'records':records,
