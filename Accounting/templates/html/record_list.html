@@ -28,11 +28,40 @@
     <div class="col py-3">
         {% if records %}
 
-        <div class="row px-5">
-            <form action="" method="GET">
-            {{search_form.as_p}}
-             <button type="submit">جستجو</button>   
-            </form>
+        <div class="row ">
+            <div class="col my-1 px-3 mx-3 py-2 search-bar">
+                <form action="" method="GET" class="form-row px-2">
+                    
+                    <label for="{{search_form.record_name.id_for_label}}" class="col-2" > {{search_form.record_name.label}}</label>  
+                        <div class="col-4">
+                            {{search_form.record_name}}
+                            {{search_form.record_name.errors}}
+                        </div>
+                    
+                    <label for="{{search_form.project_name.id_for_label}}" class="col-2" > {{search_form.project_name.label}}</label>  
+                    <div class="col-4">
+                        {{search_form.project_name}}
+                        {{search_form.project_name.errors}}
+                    </div>
+
+                    <label for="{{search_form.max_price.id_for_label}}" class="col-2" > {{search_form.max_price.label}}</label>  
+                    <div class="col-4">
+                        
+                        <input  type="number" name="{{search_form.max_price.label}}" min="0" id="id_max_price">
+                      
+                        {{search_form.max_price.errors}}
+                    </div>
+
+                    <label for="{{search_form.min_price.id_for_label}}" class="col-2" > {{search_form.min_price.label}}</label>  
+                    <div class="col-4">
+                        {{search_form.min_price}}
+                        {{search_form.min_price.errors}}
+                    </div>
+                    
+                <button type="submit">جستجو</button>   
+                </form>
+
+             </div>
     
         </div>
 
