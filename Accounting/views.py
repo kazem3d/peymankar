@@ -1,8 +1,8 @@
 from django.shortcuts import render,get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from Accounting.models import recording,Project
-
-from Accounting.forms import SearchForm
+from django.urls import reverse
+from Accounting.forms import SearchForm,RegisterRecordForm
 
 def record_list(request):
     search_form=SearchForm(request.GET)
@@ -32,3 +32,22 @@ def record_details(request,record_id):
 
     }
     return render(request,'html/record_details.html',context)
+
+
+def record_register(request):
+
+    if request.method == 'POST':
+        record_form=RegisterRecordForm(request.POST)
+        if record_form.is_valid():
+            record_form.save()
+
+            return HttpResponseRedirect(reverse('accounting:record_list'))
+    else:
+        record_form=RegisterRecordForm()
+        
+               
+
+    context={
+        'record_form' : record_form
+    }
+    return render(request,'html/record_register.html',context)

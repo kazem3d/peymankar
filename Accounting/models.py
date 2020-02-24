@@ -20,7 +20,7 @@ class recording(models.Model):
     unit_price=models.BigIntegerField('مبلغ واحد')
     total_price=models.BigIntegerField('مبلغ کل')
     date=models.DateField('تاریخ')
-    description=models.TextField('توضیحات')
+    description=models.TextField('توضیحات',null=True)
 
     def __str__(self):
         return '{}    {}  {}' .format(self.title,self.total_price,self.date)
