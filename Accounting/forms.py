@@ -13,7 +13,9 @@ class SearchForm(forms.Form):
 class RegisterRecordForm(forms.ModelForm):
     class Meta:
         model=recording
-        exclude=['description']
+        # fields=['_all_']
+        exclude=[]
+        
 
     def clean_unit_price(self):
         unit_price=self.cleaned_data.get('unit_price')
