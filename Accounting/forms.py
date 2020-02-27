@@ -24,4 +24,7 @@ class RegisterRecordForm(forms.ModelForm):
         else:
             return unit_price
 
-
+class EditForm(forms.ModelForm):
+    class Meta:
+        model=recording
+        exclude=[]

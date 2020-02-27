@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block toolbar_title %}
-جزئیات رکورد
+ویرایش رکورد
 {% endblock %}
 
 {% block toolbar_buttons %} 
@@ -35,8 +35,17 @@
 
 {% block main_content %}
   
+<form method="POST" action="">
+    {% csrf_token %}
+    {{edit_form}}
 
-  <div class="row py-3">
+    <button class="btn btn-danger py-1 px-2" type="submit" %} >
+            ثبت ویرایش     
+    </button>
+
+</form>
+    
+  <!-- <div class="row py-3">
     <div class="col-8 item-details">
         <div class="row px-3">
             <div class="col-3">
@@ -45,7 +54,7 @@
                 </small>
             </div>
             <div class="col-9">
-                {{ record.title }}
+                {{ edit_form.title }}
             </div>
             <div class="w-100 my-1"></div>
             <div class="col-3">
@@ -54,7 +63,7 @@
                 </small>
             </div>
             <div class="col-9">
-                {{ record.date }}
+                {{ edit_form.date }}
             </div>
             <div class="w-100 my-1"></div>
             <div class="col-3">
@@ -63,7 +72,7 @@
                 </small>
             </div>
             <div class="col-9">
-                {{ record.total_price | intcomma:False  }}
+                {{ edit_form.total_price | intcomma:False  }}
                 ریال
             </div>
             <div class="w-100 my-1"></div>
@@ -73,16 +82,10 @@
                 </small>
             </div>
             <div class="col-9 item-text-box">
-                {{ record.project }}
+                {{ edit_form.project }}
             </div>
-
-            <a class="btn btn-danger py-1 px-2" href={% url 'accounting:record_edit' record_edit_id=record.id %} >
-                
-                ویرایش رکورد
-            </a>
-
         </div>
-    </div>
+    </div> -->
 {% endblock %}
   
 
