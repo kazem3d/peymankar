@@ -1,9 +1,10 @@
 {% extends  "html/base.html" %}
 
 {% load static %}
+{% load humanize %}
 {% block title %}سامانه جامع پیمانکاران{% endblock %}
 
-{% block toolbar_title %}لیست رکوردها{% endblock %}
+{% block toolbar_title %}ثبت رکورد جدید{% endblock %}
 
 {% block toolbar_buttons %}
 <a class="btn btn-light py-1 px-2" href={% url 'accounting:record_list' %} >
@@ -13,18 +14,30 @@
         
 {%endblock%}
 
-
-
 {% block main_content %}
-        <form action="" method="POST"  class="form py-2 ">
-            {% csrf_token %}
-            <table class="my-1">
-                {{record_form.as_table }}
-            </table>
+<form action="" method="POST"  class="form py-2 ">
+    {% csrf_token %}
+    <div class="row py-3">
+        <div class="col-8 item-details">
+            <div class="row px-3">
+                {% include 'html/_form_field.html' with field=record_form.project %}
+                {% include 'html/_form_field.html' with field=record_form.types %}
+                {% include 'html/_form_field.html' with field=record_form.title %}
+                {% include 'html/_form_field.html' with field=record_form.amount %}
+                {% include 'html/_form_field.html' with field=record_form.unit_price %}
+                <!-- {% include 'html/_form_field.html' with field=record_form.total_price %} -->
+                {% include 'html/_form_field.html' with field=record_form.date%}
+                {% include 'html/_form_field.html' with field=record_form.description%}
 
-            <button type="submit" class="btn btn-success btn-sm" >
-                ثبت
-            </button>
-    
-        </form>
+                <button type="submit" class="btn btn-success btn-sm" >
+                    ثبت
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</form>
 {%endblock%}
