@@ -25,6 +25,15 @@
                 {% include 'html/_form_field.html' with field=record_form.title %}
                 {% include 'html/_form_field.html' with field=record_form.amount %}
                 {% include 'html/_form_field.html' with field=record_form.unit_price %}
+                <div class="col-3">
+                    <small class="text-muted">
+                        مبلغ کل
+                    </small>
+                </div>
+                <div class="col-9">
+                <!-- {{record_form.}} -->
+                </div>
+                <div class="w-100 my-1"></div>
                 <!-- {% include 'html/_form_field.html' with field=record_form.total_price %} -->
                 {% include 'html/_form_field.html' with field=record_form.date%}
                 {% include 'html/_form_field.html' with field=record_form.description%}
