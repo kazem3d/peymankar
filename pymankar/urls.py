@@ -19,7 +19,12 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from Accounting import views
+app_name ='pymankar'
 urlpatterns = [
+    
     path('admin/', admin.site.urls),
+    path('', views.home, name='home'),
     path('accounting/',include('Accounting.urls'))
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
+# + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

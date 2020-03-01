@@ -1,8 +1,13 @@
 from django.shortcuts import render,get_object_or_404
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect,HttpResponse
 from Accounting.models import recording,Project
 from django.urls import reverse
 from Accounting.forms import SearchForm,RegisterRecordForm,EditForm
+
+def home(request):
+    return render(request,"html/home_page.html")
+
+
 
 def record_list(request):
     search_form=SearchForm(request.GET)

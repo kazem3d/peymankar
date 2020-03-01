@@ -26,7 +26,7 @@ SECRET_KEY = '1)u5yao$gs$s)^kyi81@b%#%bg%bciawmh=uc$^b8&w0=1%*a%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['kazem3d.ir','127.0.0.1']
 
 
 # Application definition

@@ -1,2 +1,3 @@
-create home page
+making project page and project details
+create home page & use CDN
 edit htlm for register records and better form with specific detals

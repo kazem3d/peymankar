@@ -1,0 +1,31 @@
+{% extends  "html/base.html" %}
+{% load static %}
+
+{% block title %} صفحه اصلی{% endblock %}
+
+{% block toolbar_title %}صفحه اصلی{% endblock %}
+
+
+
+{% block main_content %}
+<br>
+<a class="btn btn-primary btn-lg btn-block py-1 px-2" href={% url 'accounting:record_list' %} >
+    <i class="fas fa-building"></i>
+    لیست رکوردها
+</a>
+<br>
+<a class="btn btn-success btn-lg btn-block py-1 px-2" href={% url 'accounting:record_register' %} >
+    <i class="fas fa-building"></i>
+    ثبت رکورد
+</a>
+<br>
+<a class="btn btn-danger btn-lg btn-block py-1 px-2" href='#' >
+    <i class="fas fa-building"></i>
+    ثبت پروژه
+</a>
+<br>
+<a class="btn btn-warning btn-lg btn-block py-1 px-2" href='#' >
+    <i class="fas fa-building"></i>
+    لیست پروژها
+</a>
+{% endblock %}
