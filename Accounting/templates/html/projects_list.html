@@ -1,0 +1,42 @@
+{% extends  "html/base.html" %}
+
+{% load static %}
+
+{% block title %}
+سامانه جامع پیمانکاران
+{% endblock %}
+
+{% block toolbar_title %}
+لیست پروژه ها
+{% endblock %}
+
+{% block main_content %}
+  <div class="row">
+    <div class="col py-3">
+        {% if projects %}
+        <ul class="item-list">
+            {% for project in projects %}    
+                <li>
+                    
+                        <i class="fas fa-film"></i>
+                        <a href='#'>
+                          {{ project.name}}
+                         
+                        <small class="text-muted">
+                           
+                        </small>
+                       </a>
+                    
+                </li>
+            {% endfor %}
+            
+        </ul>
+        {% else %}
+        <div class="alert alert-danger">
+            در حال حاضر هیچ پروژه ای برای نمایش وجود ندارد.
+        </div>
+    </div>
+</div>        
+    {% endif %}
+
+{% endblock %}

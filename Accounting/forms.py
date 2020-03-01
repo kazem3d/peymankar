@@ -13,7 +13,6 @@ class SearchForm(forms.Form):
 class RegisterRecordForm(forms.ModelForm):
     class Meta:
         model=recording
-        # fields=['_all_']
         exclude=[]
         
 
@@ -24,7 +23,8 @@ class RegisterRecordForm(forms.ModelForm):
         else:
             return unit_price
 
-class EditForm(forms.ModelForm):
+
+class ProjectForm(forms.ModelForm):
     class Meta:
-        model=recording
+        model=Project
         exclude=[]

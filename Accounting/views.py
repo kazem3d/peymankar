@@ -2,7 +2,7 @@ from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponseRedirect,HttpResponse
 from Accounting.models import recording,Project
 from django.urls import reverse
-from Accounting.forms import SearchForm,RegisterRecordForm,EditForm
+from Accounting.forms import SearchForm,RegisterRecordForm,ProjectForm
 
 def home(request):
     return render(request,"html/home_page.html")
@@ -59,13 +59,13 @@ def record_edit(request,record_edit_id):
 
     record=recording.objects.get(id=record_edit_id)
     if request.method == "POST" :
-         edit_form=EditForm(request.POST,instance=record)
+         edit_form=RegisterRecordForm(request.POST,instance=record)
          if edit_form.is_valid():
              edit_form.save()
              
              return HttpResponseRedirect(reverse('accounting:record_details', args=(record.id,) ))
     else:
-        edit_form=EditForm(instance=record)
+        edit_form=RegisterRecordForm(instance=record)
 
 
     context={
@@ -73,3 +73,26 @@ def record_edit(request,record_edit_id):
     }
 
     return render(request,'html/edit_record.html',context)
+
+def project_register(request):
+    
+    if request.method == 'POST':
+        project=ProjectForm(request.POST)
+        if project.is_valid():
+            project.save()
+            return HttpResponseRedirect(reverse('accounting:record_list'))
+    else:
+        project=ProjectForm()
+
+    context={
+        'project':project
+    }
+    return render(request,'html/register_project.html',context)
+
+def projects_list(request):
+    projects=Project.objects.all()
+    context={
+        'projects':projects
+    }
+
+    return render(request,'html/projects_list.html',context)

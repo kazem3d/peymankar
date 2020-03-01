@@ -1,3 +1,4 @@
-making project page and project details
+making project details and project edit & delete record buttom
+making project page and project list 
 create home page & use CDN
 edit htlm for register records and better form with specific detals
