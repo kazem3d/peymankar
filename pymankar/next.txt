@@ -1,3 +1,4 @@
+making delete  buttom for models and work on css
 making project details and project edit & delete record buttom
 making project page and project list 
 create home page & use CDN

@@ -96,3 +96,29 @@ def projects_list(request):
     }
 
     return render(request,'html/projects_list.html',context)
+
+def project_details(request,project_id):
+
+    projects=get_object_or_404(Project,id=project_id)
+    context={
+        'projects':projects
+    }
+    return render(request,'html/project_details.html',context)
+
+def project_edit(request,project_edit_id):
+    
+    project=Project.objects.get(id=project_edit_id)
+    if request.method == 'POST':
+            project_form=ProjectForm(request.POST,instance=project)
+            if project_form.is_valid():
+                project_form.save()
+                return HttpResponseRedirect(reverse('accounting:project_details', args=(project.id,) ))
+    else:
+
+
+        project_form=ProjectForm(instance=project)
+
+    context={
+        'project_form':project_form
+    }
+    return render(request,'html/project_edit.html/',context)

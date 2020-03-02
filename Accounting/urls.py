@@ -9,6 +9,8 @@ urlpatterns=[
     path('record_register/',views.record_register,name='record_register'),
     path('project_register/',views.project_register,name='project_register'),
     path('projects_list/',views.projects_list,name='projects_list'),
+    path('project_details/<int:project_id>',views.project_details,name='project_details'),
+    path('project_edit/<int:project_edit_id>',views.project_edit,name='project_edit'),
     path('record_edit/<int:record_edit_id>/',views.record_edit,name='record_edit')
 
 

@@ -53,7 +53,21 @@ class Project(models.Model):
         verbose_name="پروژه"
         verbose_name_plural="پروژه ها"
 
-    name=models.CharField('عنوان پروژه', max_length=50)
+    status_choise=[
+        ('1','در دست اجرا'),
+        ('2','پیش نویس'),
+        ('3','تحویل موقت'),
+        ('4','تحویل قطعی'),
+        ('5','تعلیق')
+    ]
 
+    name=models.CharField('عنوان پروژه', max_length=50)
+    number=models.CharField('شماره قرارداد',max_length=50,null=True,blank=True)
+    date=models.DateField('تاریخ قرارداد',null=True,blank=True)
+    cost=models.BigIntegerField('مبلغ قرارداد',null=True,blank=True)
+    master=models.CharField('نام کارفرما ',max_length=50,null=True,blank=True)
+    status=models.CharField('وضعیت قرارداد',choices=status_choise,null=True,blank=True,max_length=15)
+    
+    
     def __str__(self):
         return '{}'.format(self.name)

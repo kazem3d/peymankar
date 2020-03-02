@@ -19,7 +19,7 @@
                 <li>
                     
                         <i class="fas fa-film"></i>
-                        <a href='#'>
+                        <a href={% url 'accounting:project_details' project_id=project.id %}>
                           {{ project.name}}
                          
                         <small class="text-muted">
