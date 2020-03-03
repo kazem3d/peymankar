@@ -15,12 +15,12 @@ class RegisterRecordForm(forms.ModelForm):
         exclude=[]
         
 
-    def clean_unit_price(self):
-        unit_price=self.cleaned_data.get('unit_price')
-        if unit_price % 1000 != 0:
-            raise ValidationError('مقداردرست نیست')
-        else:
-            return unit_price
+    # def clean_unit_price(self):
+    #     unit_price=self.cleaned_data.get('unit_price')
+    #     if unit_price % 1000 != 0:
+    #         raise ValidationError('مقداردرست نیست')
+    #     else:
+    #         return unit_price
 
 
 class ProjectForm(forms.ModelForm):

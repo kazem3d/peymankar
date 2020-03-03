@@ -33,7 +33,7 @@ class recording(models.Model):
     unit_price=models.BigIntegerField('مبلغ واحد')
     # total_price=models.BigIntegerField('مبلغ کل')
     
-    date=models.DateField('تاریخ')
+    date=models.DateField('تاریخ',null=True,blank=True)
     description=models.TextField('توضیحات',null=True,blank=True)
 
     _total_price=None
