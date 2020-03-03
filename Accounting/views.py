@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect,HttpResponse
 from Accounting.models import recording,Project
 from django.urls import reverse
 from Accounting.forms import SearchForm,RegisterRecordForm,ProjectForm
+from django.db.models import  Sum,Avg
 
 def home(request):
     return render(request,"html/home_page.html")
@@ -11,9 +12,21 @@ def home(request):
 
 def record_list(request):
     search_form=SearchForm(request.GET)
+
+    records=recording.objects.filter(types='1')
+    expense_sum=records.aggregate(jam=Sum('total_price'))
+    expense_sum=list(expense_sum.values())[0]
+
+    records=recording.objects.filter(types='2')
+    income_sum=records.aggregate(jam=Sum('total_price'))
+    income_sum=list(income_sum.values())[0]
+    
     records=recording.objects.all()
+
     if search_form.is_valid():
-       
+        
+        
+
         records=records.filter(title__contains=search_form.cleaned_data['record_name'])
         if search_form.cleaned_data['project_name'] is not None:
             records=records.filter(project=search_form.cleaned_data['project_name'])
@@ -22,10 +35,12 @@ def record_list(request):
         if search_form.cleaned_data['min_price'] is not None:
             records=records.filter(total_price__gte =search_form.cleaned_data['min_price'])
 
-
+   
     context={
         'records':records,
-        'search_form':search_form
+        'search_form':search_form,
+        'expense_sum':expense_sum,
+        'income_sum':income_sum
     }
     return render(request,'html/record_list.html',context)
 
@@ -122,3 +137,8 @@ def project_edit(request,project_edit_id):
         'project_form':project_form
     }
     return render(request,'html/project_edit.html/',context)
+
+def about_us(request):
+
+    return render(request,'html/about_us.html/')
+    

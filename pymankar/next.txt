@@ -1,5 +1,8 @@
 making delete  buttom for models and work on css
+get_status_display what is?
+making about page and work on css for project
 making project details and project edit & delete record buttom
 making project page and project list 
 create home page & use CDN
 edit htlm for register records and better form with specific detals
+

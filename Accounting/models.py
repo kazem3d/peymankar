@@ -18,10 +18,12 @@ class recording(models.Model):
         verbose_name="ثبت دخل و خرج"
         verbose_name_plural="ثبت دخل و خرج"
     
+    EXPENSE='1'
+    INCOME='2'
 
     types_choice=[
-        ('1','خرج کرد'),
-        ('2','درآمد')
+        (EXPENSE,'خرج کرد'),
+        (INCOME,'درآمد')
     ]
 
     types=models.CharField('نوع',choices=types_choice,max_length=10)

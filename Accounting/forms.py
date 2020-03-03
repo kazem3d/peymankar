@@ -8,8 +8,7 @@ class SearchForm(forms.Form):
                 queryset=Project.objects.all(),required=False)
     max_price=forms.IntegerField(label='بیشترین قیمت',min_value=0,required=False)
     min_price=forms.IntegerField(label='کمترین قیمت',min_value=0,required=False)
-    
-
+   
 class RegisterRecordForm(forms.ModelForm):
     class Meta:
         model=recording

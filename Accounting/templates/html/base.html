@@ -41,7 +41,7 @@
                     <i class="fas fa-film"></i>
                     خانه
                 </a>
-                <a class="btn btn-success py-1 px-2" href="#">
+                <a class="btn btn-success py-1 px-2" href={% url 'accounting:about_us' %}>
                     <i class="fas fa-ticket-alt"></i>
                         درباره ما
                 </a>
@@ -68,7 +68,30 @@
 
     {% block main_content %}{% endblock %}
   
+    <div class="row align-content-center" id="footer">
+        <div class="col text-center">
+            <span>
+                ما را در شبکه‌های اجتماعی دنبال کنید.
+
+                
+                <a class="social-media-icon" href="#">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a class="social-media-icon" href="#">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a class="social-media-icon" href="#">
+                    <i class="fab fa-telegram-plane"></i>
+                </a>
+            </span>
+        </div>
+    </div>
+
     
+
+
+
+
 
 </div>
 

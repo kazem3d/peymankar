@@ -20,8 +20,13 @@
     <div class="row py-3">
         <div class="col-8 item-details">
             <div class="row px-3">
-                <!-- {% include 'html/_form_field.html' with field=project %} -->
-                {{project}}
+                {% include 'html/_form_field.html' with field=project.name %}
+                {% include 'html/_form_field.html' with field=project.number %}
+                {% include 'html/_form_field.html' with field=project.date %}
+                {% include 'html/_form_field.html' with field=project.cost %}
+                {% include 'html/_form_field.html' with field=project.master %}
+                {% include 'html/_form_field.html' with field=project.status %}
+                
 
                 <button type="submit" class="btn btn-success btn-sm" >
                     ثبت

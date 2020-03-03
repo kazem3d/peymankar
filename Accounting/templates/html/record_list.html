@@ -52,6 +52,8 @@
                         {{search_form.min_price}}
                         {{search_form.min_price.errors}}
                     </div>
+
+                    
                     
                 <button type="submit">جستجو</button>   
                 </form>
@@ -62,6 +64,25 @@
 
 
             <ul class="item-list">
+
+                <div class="row px-2">
+                    <div class="col">
+                        <div class="alert alert-info mt-2 mb-0 py-1 px-3">
+                            جمع کل خرج کرد :
+                            {{expense_sum | intcomma:False}}
+                            ريال
+                        </div>
+                        
+                        <div class="alert alert-info mt-2 mb-0 py-1 px-3">
+                            جمع کل درآمد :
+                            {{income_sum | intcomma:False}}
+                            ريال
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+                
                 {% for record in records %}
                     <li>
                             

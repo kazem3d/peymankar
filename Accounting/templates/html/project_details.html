@@ -28,6 +28,8 @@
   <div class="row py-3">
     <div class="col-8 item-details">
         <div class="row px-3">
+           
+
             <div class="col-3">
                 <small class="text-muted">
                     عنوان:
@@ -48,6 +50,15 @@
             <div class="w-100 my-1"></div>
             <div class="col-3">
                 <small class="text-muted">
+                    شماره قرارداد:
+                </small>
+            </div>
+            <div class="col-9">
+                {{ projects.number }}
+            </div>
+            <div class="w-100 my-1"></div>
+            <div class="col-3">
+                <small class="text-muted">
                 مبلغ پروژه
                 </small>
             </div>
@@ -58,12 +69,22 @@
             <div class="w-100 my-1"></div>
             <div class="col-3">
                 <small class="text-muted">
-                    شماره قرارداد
+                    نام کارفرما
                 </small>
             </div>
             <div class="col-9 item-text-box">
-                {{ projects.number }}
+                {{ projects.master }}
             </div>
+            <div class="w-100 my-1"></div>
+            <div class="col-3">
+                <small class="text-muted">
+                    وضعیت قرارداد
+                </small>
+            </div>
+            <div class="col-9">
+                {{ projects.get_status_display  }}
+            </div>
+            <div class="w-100 my-1"></div>
 
             <a class="btn btn-danger py-1 px-2" href={% url 'accounting:project_edit' project_edit_id=projects.id %} >
                 
