@@ -21,10 +21,10 @@ class recording(models.Model):
     EXPENSE='1'
     INCOME='2'
 
-    types_choice=[
+    types_choice=(
         (EXPENSE,'خرج کرد'),
         (INCOME,'درآمد')
-    ]
+    )
 
     types=models.CharField('نوع',choices=types_choice,max_length=10)
     project=models.ForeignKey('Project',on_delete=models.PROTECT,verbose_name='نام پروژه',null=True)

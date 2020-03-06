@@ -21,6 +21,7 @@ def record_list(request):
     income_sum=records.aggregate(jam=Sum('total_price'))
     income_sum=list(income_sum.values())[0]
     
+    
     records=recording.objects.all()
 
     if search_form.is_valid():
@@ -28,12 +29,17 @@ def record_list(request):
         
 
         records=records.filter(title__contains=search_form.cleaned_data['record_name'])
+        if search_form.cleaned_data['type_of'] is not None :
+            records=records.filter(types=search_form.cleaned_data['type_of'])
         if search_form.cleaned_data['project_name'] is not None:
             records=records.filter(project=search_form.cleaned_data['project_name'])
         if search_form.cleaned_data['max_price'] is not None:
             records=records.filter(total_price__lte =search_form.cleaned_data['max_price'])
         if search_form.cleaned_data['min_price'] is not None:
             records=records.filter(total_price__gte =search_form.cleaned_data['min_price'])
+
+
+        
 
    
     context={
