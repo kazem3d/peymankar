@@ -1,4 +1,6 @@
 making delete  buttom for models and work on css
+making type option for search bar
+
 get_status_display what is?
 
 making about page and work on css for project
