@@ -36,7 +36,6 @@
                 </h4>
             </div>
         <div class="col-6 text-left">
-            
                 <a class="btn btn-light py-1 px-2" href="/" >
                     <i class="fas fa-film"></i>
                     خانه
@@ -45,6 +44,34 @@
                     <i class="fas fa-ticket-alt"></i>
                         درباره ما
                 </a>
+   
+                     
+                {% if user.is_authenticated %}
+
+                    
+
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{user.get_full_name}}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="#">مشاهده پروفایل</a>
+                      <a class="dropdown-item" href={% url 'accounts:logout' %}>خروج</a>
+                    </div>
+                </div>
+                {% else %}
+
+                <div class="dropdown">
+                    <a class="btn btn-secondary " href={% url 'accounts:login' %}   >
+                        ورود
+                    </a>
+
+                </div>
+
+
+                {% endif %}
+
+
                 {% block toolbar_buttons %}
                 <!-- <a class="btn btn-light py-1 px-2" href={% url 'accounting:record_list' %} >
                     <i class="fas fa-building"></i>

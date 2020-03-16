@@ -4,12 +4,14 @@ from Accounting.models import recording,Project
 from django.urls import reverse
 from Accounting.forms import SearchForm,RegisterRecordForm,ProjectForm
 from django.db.models import  Sum,Avg
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 def home(request):
     return render(request,"html/home_page.html")
 
 
-
+@login_required
 def record_list(request):
     search_form=SearchForm(request.GET)
 
@@ -147,4 +149,6 @@ def project_edit(request,project_edit_id):
 def about_us(request):
 
     return render(request,'html/about_us.html/')
-    
+
+def login(request):
+    return HttpResponse('hello')    

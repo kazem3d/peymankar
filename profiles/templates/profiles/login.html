@@ -1,0 +1,37 @@
+{% extends  "html/base.html" %}
+{% load static %}
+
+{% block title %}
+صفحه ورود
+{% endblock %}
+
+{% block toolbar_title %}
+ابتدا وارد شوید
+{% endblock %}
+
+{% block main_content %}
+
+<form method="POST" action="">
+    {% csrf_token %}
+    
+    <label for="username_id">  نام کاربری: </label>
+    <input type="text" name="username" id="username_id" value='{{username}}'>
+    <br>
+    <label for="password_id">  نام کاربری: </label>
+    <input type="password" name="password" id="password_id" >
+    <button type="submit" class="btn btn-success btn-sm" >
+        ورود
+    </button>
+    <br>
+
+    {% if error %}
+        <div class="alert alert-danger">
+            {{ error }}
+        </div>
+    {% endif %}
+  
+    
+
+</form>
+
+{% endblock %}
